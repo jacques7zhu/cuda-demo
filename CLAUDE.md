@@ -35,6 +35,9 @@ C/C++:
 
 
 ## Developpment
+- follow the file structure convention, src/demo is an example.
+- for host/device code, use ".h" file for header files, use ".cu" file for source files, use ".cpp" file for test files and write tests with gtest.
+- use `cuda_library` and `cuda_gtest` to define library and tests in cmake, examples can be found in src/demo/CMakeLists.txt
 - use cmake with ninja to build the project
 ```
 cmake --preset default
@@ -47,6 +50,14 @@ ctest
 ## cuda-like Programming model
 
 We use a custom haredware similar to nvidia's GPU, use a subset of cuda to implement host/device code run on gpu and always consider the following limitations and the hardware abstration.
+- in general, use CUDA C++ API.
+- do not optimze for speed unless you are told explicitly, readibility, simplicity and testibility is the rules of thumb.
+- use TDD
+
+As a supplimentary, we added some keywords in src/common/inc/predefine to improve readibility. Always use them if possible.
+- `__mem0__` to `__mem4__` for local memory in each thread. always consider reading/writing local memory is exetremly fast.
+- add `__DDR` to a memory if it is in DDR, other it's regarded as a local memory.
+
 
 ### limitations:
 - do not use cuda Graph
