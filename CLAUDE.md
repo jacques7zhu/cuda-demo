@@ -24,6 +24,25 @@ C/C++:
 - use camelCase for functions and methods, name starts with lower case, e.g. `myFunc`
 - use CamelCase for class/structs, e.g `MyClass`
 - use snake case for variables/arguments, e.g. `my_var`
+- always occupy an entine line for `{}` for class/namespace/struct/function/ifelse/for/switch blocks.
+    e.g.
+    ```cpp
+    void func()
+    {
+
+    }
+    ```
+
+
+## Developpment
+- use cmake with ninja to build the project
+```
+cmake --preset default
+cd build
+ninja
+ctest
+```
+- write kernel and host code using cuda. write test using cpp with gtest
 
 ## cuda-like Programming model
 
@@ -31,13 +50,13 @@ We use a custom haredware similar to nvidia's GPU, use a subset of cuda to imple
 
 ### limitations:
 - do not use cuda Graph
-- use cuda streams for managing multiple kernel launches
+- use cuda streams for managing multiple kernel launches aynchronously
 
 ### Hardware Abstraction
 
 #### Hardware Architechure
 - StreamProcessor: the device has 32 StreamProcessors in total, four StreamProcessor forms a Processor Cluster, each StreamProcessor has 4 identical cores where cores in the same processor share the same 24M data memory.
-- Global memory: The global device memory is DDR, it has 16G bytes in total, 64 bit address based.
+- Global memory: The global device memory is DDR, it has 16G bytes in total, 64 bit address based,  
 - Shared memory & local memory: the 24M data memory inside each StreamProcessor is 32-bit addressed, has 24 banks, and is logically divided to shared memory and local memory. To avoid bank conflicts，we logically split them to 4 parts:
     a. core0: bank0~5; core1: bank6~11; core2: bank12~17；core3: bank18~23
     b. threads run in different cores use different banks.

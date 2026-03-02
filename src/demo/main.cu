@@ -1,8 +1,15 @@
 #include <iostream>
+#include "common/inc/predefine.h"
 
 // A minimal CUDA kernel
-__global__ void helloFromGPU() {
+__global__ void helloFromGPU() 
+{
     printf("Hello from GPU! Thread ID: %d\n", threadIdx.x);
+}
+
+__global__ void vadd() 
+{
+
 }
 
 int main() {
