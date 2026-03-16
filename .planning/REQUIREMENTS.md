@@ -1,7 +1,7 @@
 # v1 Requirements: Spheroid-3DFFT
 
 ## Core Mathematical Transforms
-- [ ] **FFT-01**: Support 1D, 2D, and 3D C2C (complex-to-complex) transforms.
+- [ ] **FFT-01**: Support 3D C2C (complex-to-complex) transforms.
 - [ ] **FFT-02**: Implement mixed-radix support (Radix-2, 3, and 5) to handle various dimensions.
 - [ ] **FFT-03**: Support both forward and inverse 3D FFT variants.
 
@@ -16,6 +16,10 @@
 - [ ] **XPOSE-01**: In-SRAM Transposition (x2y): Leverage S-APCs and SDB bus for transposing data without DDR roundtrips.
 - [ ] **DECOMP-01**: Hybrid Task Decomposition: Use "Pencil" for X-direction transforms and "Slab" for YZ-plane transforms.
 
+## Spheroid Specifics (Synchronized with PROJECT.md)
+- [ ] **REORDER-01**: Spheroid-to-grid reordering (forward and inverse).
+- [ ] **LAYOUT-01**: Optimal data layout and twiddler factor design for spheroid.
+
 ## v2 Requirements (Deferred)
 - [ ] **SCALE-03**: Large-Scale Support: Out-of-core handling for datasets > 2GB using multi-die/disk swapping (2+ DDR hits).
 
@@ -25,4 +29,18 @@
 - **SIMT-AUTO**: Reliance on SIMT execution or auto-vectorization (Hardware uses explicit core control).
 
 ## Traceability
-*To be populated by ROADMAP.md*
+
+| Requirement | Phase | Status |
+|-------------|-------|--------|
+| FFT-01 | Phase 3 | Pending |
+| FFT-02 | Phase 1 | Pending |
+| FFT-03 | Phase 3 | Pending |
+| SCALE-01 | Phase 3 | Pending |
+| SCALE-02 | Phase 4 | Pending |
+| CSS-01 | Phase 3 | Pending |
+| OPT-01 | Phase 2 | Pending |
+| SCHED-01 | Phase 2 | Pending |
+| XPOSE-01 | Phase 3 | Pending |
+| DECOMP-01 | Phase 4 | Pending |
+| REORDER-01 | Phase 3 | Pending |
+| LAYOUT-01 | Phase 1 | Pending |
