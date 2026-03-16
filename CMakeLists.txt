@@ -22,3 +22,4 @@ include("${CMAKE_SOURCE_DIR}/gtest.cmake")
 include("${CMAKE_SOURCE_DIR}/cuda.cmake")
 
 add_subdirectory(src/demo)
+add_subdirectory(src/fft)
